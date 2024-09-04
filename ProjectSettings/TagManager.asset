@@ -44,6 +44,9 @@ TagManager:
   - name: bg
     uniqueID: 1735737639
     locked: 0
+  - name: decor
+    uniqueID: 1228306475
+    locked: 0
   - name: player
     uniqueID: 197843601
     locked: 0

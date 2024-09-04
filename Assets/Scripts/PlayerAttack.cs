@@ -10,6 +10,7 @@ public class PlayerAttack : MonoBehaviour
     public LayerMask enemyLayers;
     public Transform attackPoint;
     public float attackRate = 1f;
+    public float attackTime = 0f;
 
     private float nextAttackTime = 0f;
     private Animator animator;
