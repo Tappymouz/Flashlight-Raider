@@ -8,7 +8,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - enemy
   - Water
   - UI
   - 
@@ -44,15 +44,12 @@ TagManager:
   - name: bg
     uniqueID: 1735737639
     locked: 0
-  - name: decor
-    uniqueID: 1228306475
+  - name: enemy
+    uniqueID: 669197153
     locked: 0
   - name: player
     uniqueID: 197843601
     locked: 0
   - name: wall
     uniqueID: 2375853445
-    locked: 0
-  - name: enemy
-    uniqueID: 669197153
     locked: 0
