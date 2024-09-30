@@ -8,17 +8,17 @@ using UnityEngine.EventSystems;
 public class PlayerMove : MonoBehaviour
 {
     public Joystick Joystick;
-    public float speed = 5f;
-     public float rotationSpeed = 1440f;
-     public RectTransform swipeArea;
+    public float speed = 1f;
+    public float rotationSpeed;
+    public RectTransform swipeArea;
 
     private Rigidbody2D rb;
     private Vector2 smoothedMovementInput;
     private Vector2 smoothedMovementInputVelocity;
 
-     private TouchInput touchInputActions;
-     private Vector2 swipeInput;
-     private Vector2 touchPosition;
+    private TouchInput touchInputActions;
+    private Vector2 swipeInput;
+    private Vector2 touchPosition;
 
     private void Awake()
     {

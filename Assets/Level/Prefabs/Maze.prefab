@@ -61,10 +61,12 @@ MonoBehaviour:
   - {fileID: 5236846064444078467, guid: 340e0cb877e76774397c6dd93d5dfa70, type: 3}
   - {fileID: 9160246039099434920, guid: 40c93342cfe61e9469c824cfa8519763, type: 3}
   - {fileID: 4866403848837660422, guid: 519f350f6c66f514ca7c1ba261748133, type: 3}
-  doorProbability: 0.02
+  numberOfDoors: 5
+  doorProbability: 0.1
   decorProbability: 0.01
   generationStepDelay: 0.01
   roomSettings:
+  - floorSprite: {fileID: 21300000, guid: 2cca8e52b70c00144bdc5fad42f8bd1a, type: 3}
   - floorSprite: {fileID: 21300000, guid: 2cca8e52b70c00144bdc5fad42f8bd1a, type: 3}
   - floorSprite: {fileID: 21300000, guid: 2cca8e52b70c00144bdc5fad42f8bd1a, type: 3}
   - floorSprite: {fileID: 21300000, guid: 2cca8e52b70c00144bdc5fad42f8bd1a, type: 3}
