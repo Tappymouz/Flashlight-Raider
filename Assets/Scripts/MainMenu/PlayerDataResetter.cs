@@ -23,7 +23,7 @@ public class PlayerDataResetter : MonoBehaviour
         SaveSystem.SavePlayer(defaultData);
 
         // Update the in-game player data
-        PlayerManager.instance.playerData = defaultData;
+        PlayerDataManager.instance.playerData = defaultData;
 
         // Update the currency display
         FindObjectOfType<CurrencyDisplay>().UpdateCurrencyDisplay();

@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour
+public class PlayerDataManager : MonoBehaviour
 {
-    public static PlayerManager instance;   // Singleton instance
+    public static PlayerDataManager instance;   // Singleton instance
     public PlayerData playerData;           // Holds the player's data
 
     void Awake()

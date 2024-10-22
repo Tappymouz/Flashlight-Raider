@@ -7,15 +7,27 @@ public class CurrencyDisplay : MonoBehaviour
 {
     public TextMeshProUGUI currencyText;
 
-    void Start()
+    private void Start()
     {
-        UpdateCurrencyDisplay();  // Initial display update
+        UpdateCurrencyDisplay();
+    }
+    private void OnEnable()
+    {
+        // Subscribe to the event when the game starts
+        TestCurrency.OnCurrencyChanged += UpdateCurrencyDisplay;
+        UpdateCurrencyDisplay(); // Ensure the text is updated when the UI element is enabled
+    }
+
+    private void OnDisable()
+    {
+        // Unsubscribe when the game object is disabled to prevent memory leaks
+        TestCurrency.OnCurrencyChanged -= UpdateCurrencyDisplay;
     }
 
     public void UpdateCurrencyDisplay()
     {
         // Get currency from the central PlayerManager
-        currencyText.text = "Currency: " + PlayerManager.instance.playerData.currency.ToString();
+        currencyText.text = PlayerDataManager.instance.playerData.currency.ToString();
     }
 }
 

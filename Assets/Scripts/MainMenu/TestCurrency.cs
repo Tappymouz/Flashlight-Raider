@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class TestCurrency : MonoBehaviour
 {
+    public static event System.Action OnCurrencyChanged;
     public void AddCurrency(int amount)
     {
         // Add currency and save
-        PlayerManager.instance.playerData.currency += amount;
-        PlayerManager.instance.SavePlayerData();
+        PlayerDataManager.instance.playerData.currency += amount;
+        PlayerDataManager.instance.SavePlayerData();
 
         // Update currency display
         FindObjectOfType<CurrencyDisplay>().UpdateCurrencyDisplay();
+        OnCurrencyChanged?.Invoke();
     }
 }
 
