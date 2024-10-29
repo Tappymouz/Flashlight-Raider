@@ -23,10 +23,10 @@ public class PlayerMove : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        // touchInputActions = new TouchInput();
+        touchInputActions = new TouchInput();
     }
 
-    /*private void OnEnable()
+    private void OnEnable()
     {
         touchInputActions.Enable();
         touchInputActions.TouchControls.PrimaryTouch.performed += OnTouchPerformed;
@@ -38,14 +38,14 @@ public class PlayerMove : MonoBehaviour
         touchInputActions.Disable();
         touchInputActions.TouchControls.PrimaryTouch.performed -= OnTouchPerformed;
         touchInputActions.TouchControls.Swipe.performed -= OnSwipePerformed;
-    }*/
+    }
 
     
 
     private void Update()
     {
         SetPlayerVelocity();
-        // RotatePlayer();
+        RotatePlayer();
     }
 
     private void SetPlayerVelocity()
@@ -65,13 +65,17 @@ public class PlayerMove : MonoBehaviour
     {
         if (swipeInput != Vector2.zero && IsTouchInSwipeArea())
         {
+            // Calculate the target angle based on swipe input
             float targetAngle = Mathf.Atan2(swipeInput.y, swipeInput.x) * Mathf.Rad2Deg;
 
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.z, targetAngle, ref rotationSpeed, 0.1f);
+            // Define the desired rotation based on the target angle
+            Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle);
 
-            rb.MoveRotation(angle);
+            // Smoothly interpolate towards the target rotation based on rotationSpeed
+            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
     }
+
 
 
     private void OnSwipePerformed(InputAction.CallbackContext context)

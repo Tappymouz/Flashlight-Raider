@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerAttack : MonoBehaviour
+public class PlayerMelee : MonoBehaviour
 {
     public float attackRange = 1f;
-    public int attackDamage = 10;
     public LayerMask enemyLayers;
     public Transform attackPoint;
     public float attackRate = 1f;
@@ -21,7 +20,7 @@ public class PlayerAttack : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
     }
 
-    private void OnMelee(InputValue inputValue)
+    private void OnAttack(InputValue inputValue)
     {
         if (inputValue.isPressed && !isAttacking && Time.time >= nextAttackTime)
         {

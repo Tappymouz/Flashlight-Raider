@@ -6,7 +6,7 @@
             "id": "be114e8b-b241-4b11-8ced-cd0f42e8303e",
             "actions": [
                 {
-                    "name": "Melee",
+                    "name": "Attack",
                     "type": "PassThrough",
                     "id": "a742a1e4-4597-4bba-bbeb-6071d03e1a10",
                     "expectedControlType": "Button",
@@ -23,7 +23,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
-                    "action": "Melee",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -34,7 +34,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": ";Keyboard&Mouse",
-                    "action": "Melee",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -45,7 +45,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Joystick",
-                    "action": "Melee",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -56,7 +56,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "XR",
-                    "action": "Melee",
+                    "action": "Attack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
