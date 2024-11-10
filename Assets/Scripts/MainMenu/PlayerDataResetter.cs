@@ -9,11 +9,11 @@ public class PlayerDataResetter : MonoBehaviour
     public void ResetPlayerData()
     {
         // Reset the player's data to default values, passing the required 'itemCount'
-        PlayerData defaultData = new PlayerData(3);  // Assuming 3 shop items
+        PlayerData defaultData = new PlayerData(4);
 
         // Set default values for currency and equipped item
         defaultData.currency = 0;
-        defaultData.itemsBought = new bool[3];  // Reset buy status for each item
+        defaultData.itemsBought = new bool[4];  // Reset buy status for each item
         defaultData.equippedCharacterId = 0;    // Default equipped character is item ID 0
 
         // Mark the default item as bought

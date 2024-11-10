@@ -58,7 +58,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void PlayBtn() 
     {
-        
+        SceneManager.LoadScene("Alternative");
     }
     public void ExitBtn()
     {

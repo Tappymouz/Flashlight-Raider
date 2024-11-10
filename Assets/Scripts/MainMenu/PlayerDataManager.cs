@@ -23,7 +23,7 @@ public class PlayerDataManager : MonoBehaviour
     void Start()
     {
         // Load player data once when the game starts
-        playerData = SaveSystem.LoadPlayer(3);
+        playerData = SaveSystem.LoadPlayer(4);
     }
 
     public void SavePlayerData()

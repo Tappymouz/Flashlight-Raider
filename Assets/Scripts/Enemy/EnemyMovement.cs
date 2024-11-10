@@ -19,6 +19,11 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField]
     private float stuckDetectionTime = 1f;
 
+    [Header("Death Settings")]
+    [SerializeField] private Sprite fallenWanderingSprite;
+    [SerializeField] private Sprite fallenHidingSprite;
+
+
     private Rigidbody2D rb;
     private PlayerDetection pdController;
     private Vector2 targetDirection;
@@ -26,24 +31,49 @@ public class EnemyMovement : MonoBehaviour
     private float stateTimer;
     private bool isIdle = false;
     private bool runningAway = false;
+    private bool handledDeath = false;
     private Vector2 lastPosition;
     private float stuckTimer = 0f;
+    private CircleCollider2D enemyCollider;
+    private SpriteRenderer spriteRenderer;
+    private bool isDead = false;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         pdController = GetComponent<PlayerDetection>();
+        enemyCollider = GetComponent<CircleCollider2D>();
         targetDirection = transform.up;
         stateTimer = moveDuration; // Start by moving for wandering type
         lastPosition = rb.position;
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+
+        if (enemyCollider == null)
+        {
+            Debug.LogError("Collider2D component is missing on the enemy object.", this);
+        }
+
+        
     }
 
     private void FixedUpdate()
     {
-        UpdateTargetDirection();
-        RotateTowardsTarget();
-        Move();
-        CheckIfStuck();
+        if (isDead)
+        {
+            // Ensure HandleDeath is called only once per enemy instance
+            if (!handledDeath) // Adding a new flag to track death handling
+            {
+                HandleDeath();
+                handledDeath = true; // Set flag to prevent further calls
+            }
+        }
+        else
+        {
+            UpdateTargetDirection();
+            RotateTowardsTarget();
+            Move();
+            CheckIfStuck();
+        }
     }
 
     private void UpdateTargetDirection()
@@ -152,6 +182,43 @@ public class EnemyMovement : MonoBehaviour
         float randomAngle = Random.Range(150f, 210f); // Large turn angle to avoid getting stuck
         Quaternion rotation = Quaternion.AngleAxis(randomAngle, transform.forward);
         targetDirection = rotation * targetDirection;
+    }
+
+    private void HandleDeath()
+    {
+        if (enemyCollider != null)
+        {
+            enemyCollider.enabled = false; // Disable collider
+        }
+
+        if (rb != null)
+        {
+            rb.velocity = Vector2.zero; // Stop any current movement
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation; // Freeze Z-axis rotation
+        }
+
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.sprite = enemyType == EnemyType.Wandering ? fallenWanderingSprite : fallenHidingSprite;
+        }
+
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.AddCurrency(1); 
+        }
+
+        StartCoroutine(DelayedDeath());
+    }
+
+    private IEnumerator DelayedDeath()
+    {
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject); // Destroy after 1 second delay
+    }
+
+    public void SetDeadFlag()
+    {
+        isDead = true;
     }
 }
 

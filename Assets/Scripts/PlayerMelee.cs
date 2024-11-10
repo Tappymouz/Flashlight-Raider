@@ -5,6 +5,15 @@ using UnityEngine.InputSystem;
 
 public class PlayerMelee : MonoBehaviour
 {
+    public enum MeleeType
+    {
+        Normal,
+        Taser
+    }
+
+    [SerializeField]
+    private MeleeType meleeType;
+
     public float attackRange = 1f;
     public LayerMask enemyLayers;
     public Transform attackPoint;
@@ -13,7 +22,7 @@ public class PlayerMelee : MonoBehaviour
 
     private float nextAttackTime = 0f;
     private Animator animator;
-    private bool isAttacking = false; // Flag to prevent spamming
+    private bool isAttacking = false;
 
     private void Start()
     {
@@ -31,11 +40,30 @@ public class PlayerMelee : MonoBehaviour
 
     private void Attack()
     {
-        isAttacking = true; // Set the flag to true
+        isAttacking = true; 
         animator.SetBool("Melee", true);
         Debug.Log("Player Attacks!");
 
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayers);
+        foreach (Collider2D hit in hitEnemies)
+        {
+            EnemyMovement enemy = hit.GetComponent<EnemyMovement>();
+            if (enemy != null)
+            {
+                enemy.SetDeadFlag();
+                Debug.Log("Hit " + hit.name + " with melee attack and set dead flag.");
+            }
+        }
+
+        if (meleeType == MeleeType.Normal)
+        {
+            AudioManager.Instance.PlaySFX("Melee");
+        }
+        else if (meleeType == MeleeType.Taser)
+        {
+            AudioManager.Instance.PlaySFX("Taser");
+        }
+
         StartCoroutine(ResetAttack());
     }
 

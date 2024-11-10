@@ -20,6 +20,11 @@ public class PlayerMove : MonoBehaviour
     private Vector2 swipeInput;
     private Vector2 touchPosition;
 
+    private string currentTileSound;
+    private float stepDelay = 1f;  // Delay between footstep sounds
+    private float stepTimer = 0.5f;    // Timer to track footstep intervals
+    private bool isWalking = false;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -46,6 +51,27 @@ public class PlayerMove : MonoBehaviour
     {
         SetPlayerVelocity();
         RotatePlayer();
+
+        if (rb.velocity.magnitude > 0.1f)  // Player is moving
+        {
+            isWalking = true;
+        }
+        else  // Player stopped moving
+        {
+            isWalking = false;
+        }
+
+        if (isWalking)
+        {
+            stepTimer += Time.deltaTime;
+            if (stepTimer >= stepDelay)
+            {
+                stepTimer = 0f;
+                DetectTileType();  // Keep checking tilemap area
+            }
+        }
+
+
     }
 
     private void SetPlayerVelocity()
@@ -99,5 +125,37 @@ public class PlayerMove : MonoBehaviour
             return swipeArea.rect.Contains(localPoint);
         }
         return false;
+    }
+
+    private void DetectTileType()
+    {
+        // Perform an overlap circle to detect the tilemap area the player is standing on
+        Collider2D[] hitTiles = Physics2D.OverlapCircleAll(transform.position, 0.1f); // Larger detection area
+
+        bool soundPlayed = false;  // To track if a sound has been played
+
+        foreach (var hit in hitTiles)
+        {
+            TileType tileTypeComponent = hit.GetComponent<TileType>();
+            if (tileTypeComponent != null)
+            {
+                // Only play sound if tile type is different or we haven't played the sound yet
+                if (tileTypeComponent.tileType.ToString() != currentTileSound || !soundPlayed)
+                {
+                    PlaySoundForTile(tileTypeComponent.tileType);
+                    currentTileSound = tileTypeComponent.tileType.ToString();  // Update the current sound
+                    soundPlayed = true;  // Mark that the sound has been played
+                    break;  // Stop after playing the sound for the detected tilemap area
+                }
+            }
+        }
+    }
+
+    private void PlaySoundForTile(TileType.TileTypeEnum tileType)
+    {
+        // Always play the sound for the tile as long as the player is walking on it
+        Debug.Log("Playing footstep sound for: " + tileType);
+
+        AudioManager.Instance.PlaySFX(tileType.ToString());
     }
 }

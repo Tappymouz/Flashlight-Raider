@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7607614036495337511}
   - component: {fileID: 1450283305400564674}
   - component: {fileID: 1051149352794196609}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -82,6 +82,9 @@ MonoBehaviour:
   moveDuration: 3
   stuckDetectionRadius: 0.2
   stuckDetectionTime: 2
+  fallenWanderingSprite: {fileID: 21300000, guid: 1e16f0c91e938804491c5f948680f759, type: 3}
+  fallenHidingSprite: {fileID: 21300000, guid: 0f96161d91d761e4f9bf4d122419a559, type: 3}
+  deathDelay: 1
 --- !u!114 &1450283305400564674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,7 +143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1211500967346399023}
   - component: {fileID: 571400105208799968}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

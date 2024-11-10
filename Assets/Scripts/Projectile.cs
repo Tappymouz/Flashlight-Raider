@@ -9,14 +9,15 @@ public class Projectile : MonoBehaviour
 
     private void Start()
     {
-        Invoke("DestroyProjectile", 3f);
+        Invoke("DestroyProjectile", 2f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.GetComponent<EnemyMovement>())
+        EnemyMovement enemy = collision.GetComponent<EnemyMovement>();
+        if (enemy != null)
         {
-
+            enemy.SetDeadFlag();
         }
     }
 

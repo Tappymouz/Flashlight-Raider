@@ -1,0 +1,303 @@
+fileFormatVersion: 2
+guid: 8b4762ebd8803a249bf58ab51d79811a
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1024
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: polisi_taser_tembak_attack_spritsheet_transparent_0
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 325
+        width: 1095
+        height: 1469
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f7c5eff921f1644f85ba63a3e25f9fd
+      internalID: -915056563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: polisi_taser_tembak_attack_spritsheet_transparent_1
+      rect:
+        serializedVersion: 2
+        x: 1725
+        y: 325
+        width: 1113
+        height: 1463
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e24f28de32e6d8d46b87a4dee7a60427
+      internalID: 1465073893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: polisi_taser_tembak_attack_spritsheet_transparent_2
+      rect:
+        serializedVersion: 2
+        x: 3115
+        y: 325
+        width: 1118
+        height: 1808
+      alignment: 9
+      pivot: {x: 0.50000024, y: 0.40403983}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbdbd6267980e6d4caaa74dd466e70dc
+      internalID: -1976202445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: polisi_taser_tembak_attack_spritsheet_transparent_3
+      rect:
+        serializedVersion: 2
+        x: 4493
+        y: 325
+        width: 1118
+        height: 2813
+      alignment: 9
+      pivot: {x: 0.5000004, y: 0.2585531}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab15025356391994d8f115fe9c618609
+      internalID: -1596621273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: polisi_taser_tembak_attack_spritsheet_transparent_4
+      rect:
+        serializedVersion: 2
+        x: 5899
+        y: 325
+        width: 1112
+        height: 3650
+      alignment: 9
+      pivot: {x: 0.49545178, y: 0.19883144}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a836b665e5ac90e409aa1f8573989d1b
+      internalID: -1130013381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: polisi_taser_tembak_attack_spritsheet_transparent_5
+      rect:
+        serializedVersion: 2
+        x: 7271
+        y: 325
+        width: 1118
+        height: 3650
+      alignment: 9
+      pivot: {x: 0.49428126, y: 0.19934136}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 444f2e2f96153d548b2efe07b4c2a643
+      internalID: 880032390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: polisi_taser_tembak_attack_spritsheet_transparent_6
+      rect:
+        serializedVersion: 2
+        x: 8751
+        y: 325
+        width: 1112
+        height: 3649
+      alignment: 9
+      pivot: {x: 0.497361, y: 0.19999088}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b3adff9a657ab34a82ca17365c3d64b
+      internalID: -1780654822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: polisi_taser_tembak_attack_spritsheet_transparent_7
+      rect:
+        serializedVersion: 2
+        x: 10219
+        y: 325
+        width: 1090
+        height: 1469
+      alignment: 9
+      pivot: {x: 0.50293237, y: 0.49673575}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ecbbd96becb8064b86caad0336914c0
+      internalID: 827741874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      polisi_taser_tembak_attack_spritsheet_transparent_0: -915056563
+      polisi_taser_tembak_attack_spritsheet_transparent_1: 1465073893
+      polisi_taser_tembak_attack_spritsheet_transparent_2: -1976202445
+      polisi_taser_tembak_attack_spritsheet_transparent_3: -1596621273
+      polisi_taser_tembak_attack_spritsheet_transparent_4: -1130013381
+      polisi_taser_tembak_attack_spritsheet_transparent_5: 880032390
+      polisi_taser_tembak_attack_spritsheet_transparent_6: -1780654822
+      polisi_taser_tembak_attack_spritsheet_transparent_7: 827741874
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
