@@ -8973,6 +8973,18 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 8103b7c7befe5b64bb809be449bfcd0f, type: 3}
   - name: Taser
     clip: {fileID: 8300000, guid: 39b2fed8fd2116a40b07ced6fdb5895d, type: 3}
+  - name: Gun
+    clip: {fileID: 8300000, guid: 3755b4535c83af9459aa2f3b7d6f8396, type: 3}
+  - name: Melee
+    clip: {fileID: 8300000, guid: 7e4cee91052afb44a9f6c81a0c893e8f, type: 3}
+  - name: Wood
+    clip: {fileID: 8300000, guid: 9ef223e1125d2a84080e65c912e2e411, type: 3}
+  - name: Water
+    clip: {fileID: 8300000, guid: 5493be2569a14da44a0507a5b1efb211, type: 3}
+  - name: Grass
+    clip: {fileID: 8300000, guid: 3d306699bfe6e7c49af8fac647579f29, type: 3}
+  - name: Concrete
+    clip: {fileID: 8300000, guid: 71e34a31a594ada4faf9f9ea08267116, type: 3}
   musicSource: {fileID: 774212670}
   sfxSource: {fileID: 1749636757}
 --- !u!4 &2120080406
