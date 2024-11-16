@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5996504662007680013}
   - component: {fileID: 7214885777456338830}
   - component: {fileID: 1587342370275368782}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Table2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ MonoBehaviour:
   - {x: 0.22110915, y: -0.19531429, z: 0}
   m_ShapePathHash: -575067211
   m_Mesh: {fileID: 0}
-  m_InstanceId: -34538
+  m_InstanceId: 74814
   m_LocalBounds:
     m_Center: {x: -0.03059268, y: -0.018058717, z: 0}
     m_Extent: {x: 0.5607083, y: 0.19430107, z: 0}

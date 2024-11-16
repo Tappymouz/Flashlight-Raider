@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6001710496765204667}
   - component: {fileID: 4838286752681451720}
   - component: {fileID: 3045949553090343887}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FallenDesk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +160,7 @@ MonoBehaviour:
   - {x: -0.26933303, y: 0.040985677, z: 0}
   m_ShapePathHash: 1162643896
   m_Mesh: {fileID: 0}
-  m_InstanceId: 40546
+  m_InstanceId: 74454
   m_LocalBounds:
     m_Center: {x: 0.0092769265, y: -0.03710887, z: 0}
     m_Extent: {x: 0.49072304, y: 0.39795297, z: 0}

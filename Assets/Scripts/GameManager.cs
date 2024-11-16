@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
 
     [Header("Player Character Setup")]
     public GameObject[] playerCharacters;
+    public GameObject reloadButton;
 
     private void Awake()
     {
@@ -134,6 +135,16 @@ public class GameManager : MonoBehaviour
         {
             Debug.LogError("Equipped character ID is out of range. Check your PlayerData setup.");
         }
+        UpdateReloadButtonState(equippedId);
+    }
+
+    public void UpdateReloadButtonState(int equippedId)
+    {
+        if (reloadButton != null)
+        {
+            // Enable the reload button only if the equipped character is the gun
+            reloadButton.SetActive(equippedId == 3);
+        }
     }
 
     public void PauseGame()
@@ -201,6 +212,11 @@ public class GameManager : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
+        if (reloadButton != null)
+        {
+            reloadButton.SetActive(false);
+        }
+
         Time.timeScale = 1;
         Destroy(gameObject);
         SceneManager.LoadScene("MainMenu"); 

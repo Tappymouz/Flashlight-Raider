@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6733789513463370782}
   - component: {fileID: 8728834056626191933}
   - component: {fileID: 356263651367963523}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TeacherDesk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ MonoBehaviour:
   - {x: 0.4472003, y: -0.23957591, z: 0}
   m_ShapePathHash: 1348872163
   m_Mesh: {fileID: 0}
-  m_InstanceId: -118134
+  m_InstanceId: 75046
   m_LocalBounds:
     m_Center: {x: 0.00656718, y: -0.0088676065, z: 0}
     m_Extent: {x: 0.44699353, y: 0.2307083, z: 0}

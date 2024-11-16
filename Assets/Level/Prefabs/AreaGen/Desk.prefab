@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6961924002526760790}
   - component: {fileID: 1443062398072294793}
   - component: {fileID: 8396257841870996732}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Desk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ MonoBehaviour:
   - {x: -0.25525305, y: -0.38164547, z: 0}
   m_ShapePathHash: 1942227249
   m_Mesh: {fileID: 0}
-  m_InstanceId: 40914
+  m_InstanceId: 74272
   m_LocalBounds:
     m_Center: {x: 0.0036416352, y: -0.020520002, z: 0}
     m_Extent: {x: 0.4194963, y: 0.36112547, z: 0}

@@ -7,6 +7,7 @@ public class PlayerTaserShoot : MonoBehaviour
 {
     public float attackRange = 1f;
     public LayerMask enemyLayers;
+    public LayerMask wallLayers;
     public Transform attackPoint;
     public float attackRate = 1f;
     public float attackTime = 0f;
@@ -36,17 +37,35 @@ public class PlayerTaserShoot : MonoBehaviour
         animator.SetBool("TaserShoot", true);
         Debug.Log("Taser Gun Fired!");
 
-        RaycastHit2D hitInfo = Physics2D.Raycast(attackPoint.position, attackPoint.up, attackRange, enemyLayers);
+        // Perform raycast that checks for walls and enemies
+        int combinedLayerMask = enemyLayers | wallLayers;
+        RaycastHit2D hitInfo = Physics2D.Raycast(attackPoint.position, attackPoint.up, attackRange, combinedLayerMask);
+
         if (hitInfo)
         {
             Debug.Log("Hit " + hitInfo.collider.name);
-            EnemyMovement enemy = hitInfo.collider.GetComponent<EnemyMovement>();
-            if (enemy != null)
+
+            // Check if the hit object is an enemy
+            if (((1 << hitInfo.collider.gameObject.layer) & enemyLayers) != 0)
             {
-                enemy.SetDeadFlag();
+                EnemyMovement enemy = hitInfo.collider.GetComponent<EnemyMovement>();
+                if (enemy != null)
+                {
+                    enemy.SetDeadFlag();
+                    Debug.Log("Enemy hit by taser.");
+                }
+            }
+            else if (((1 << hitInfo.collider.gameObject.layer) & wallLayers) != 0)
+            {
+                Debug.Log("Taser hit a wall. Stopping raycast.");
             }
         }
+        else
+        {
+            Debug.Log("No hit detected.");
+        }
 
+        // Debug visualization of the raycast
         Debug.DrawLine(attackPoint.position, attackPoint.position + attackPoint.up * attackRange, Color.cyan, 0.2f);
 
         StartCoroutine(ResetAttack());

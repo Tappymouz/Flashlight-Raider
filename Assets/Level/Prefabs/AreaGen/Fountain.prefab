@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8797855481420634778}
   - component: {fileID: 2914352730435655791}
   - component: {fileID: 3997301694118805705}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fountain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ MonoBehaviour:
   - {x: -0.44829988, y: -0.8948958, z: 0}
   m_ShapePathHash: 847299829
   m_Mesh: {fileID: 0}
-  m_InstanceId: -49970
+  m_InstanceId: 74118
   m_LocalBounds:
     m_Center: {x: -0.019820333, y: -0.02186793, z: 0}
     m_Extent: {x: 0.9747919, y: 0.9694355, z: 0}
