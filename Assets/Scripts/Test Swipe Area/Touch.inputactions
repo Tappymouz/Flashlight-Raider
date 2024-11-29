@@ -3,21 +3,39 @@
     "maps": [
         {
             "name": "TouchControls",
-            "id": "7416f27e-1c6c-4f5a-8731-20cedaa642f7",
+            "id": "081ba836-b8c8-4eaf-ad96-519ba335d94c",
             "actions": [
                 {
-                    "name": "PrimaryTouch",
+                    "name": "PrimaryTouch1",
                     "type": "PassThrough",
-                    "id": "1d1ed7c4-6c5a-4b1e-9680-2cdc35eb7c72",
+                    "id": "149cc84e-d50e-4cc1-bc5d-f4f67103c607",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Swipe",
+                    "name": "PrimaryTouch2",
                     "type": "PassThrough",
-                    "id": "7f7c5eb7-a687-4ff3-9619-c4c3fd74c2f0",
+                    "id": "5d663f8f-fdf1-4902-bc30-6ed2f734ddc8",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Swipe1",
+                    "type": "PassThrough",
+                    "id": "8705dbb5-fec5-4473-91dd-f977242b88b2",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Swipe2",
+                    "type": "PassThrough",
+                    "id": "3cdde5d2-c9ff-4a96-9446-dca7eb0412d7",
                     "expectedControlType": "Vector2",
                     "processors": "",
                     "interactions": "",
@@ -27,40 +45,50 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "2a4bff00-a818-487f-8df4-caa385106385",
-                    "path": "<Touchscreen>/primaryTouch/position",
+                    "id": "e1457908-76a9-4d87-90d2-c37d00f50ff8",
+                    "path": "<Touchscreen>/touch0/position",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "PrimaryTouch",
+                    "action": "PrimaryTouch1",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "b8ac2eac-7877-42b8-bd2f-3396e3536603",
-                    "path": "<Touchscreen>/primaryTouch/delta",
+                    "id": "863001ce-c5cc-4964-9018-4e11e1c8c426",
+                    "path": "<Touchscreen>/touch1/position",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Swipe",
+                    "action": "PrimaryTouch2",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cd92fffd-b06f-4cf1-b699-71a2d3c07c83",
+                    "path": "<Touchscreen>/touch0/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Swipe1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "692da51a-4151-4d32-8b60-f1fd505c1556",
+                    "path": "<Touchscreen>/touch1/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Swipe2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
             ]
         }
     ],
-    "controlSchemes": [
-        {
-            "name": "New control scheme",
-            "bindingGroup": "New control scheme",
-            "devices": [
-                {
-                    "devicePath": "<Touchscreen>",
-                    "isOptional": false,
-                    "isOR": false
-                }
-            ]
-        }
-    ]
+    "controlSchemes": []
 }

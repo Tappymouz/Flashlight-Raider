@@ -17,8 +17,8 @@ public class PlayerMove : MonoBehaviour
     private Vector2 smoothedMovementInputVelocity;
 
     private TouchInput touchInputActions;
-    private Vector2 swipeInput;
-    private Vector2 touchPosition;
+    private Vector2 swipeInput1, swipeInput2;
+    private Vector2 touchPosition1, touchPosition2;
 
     private string currentTileSound;
     private float stepDelay = 1f;  // Delay between footstep sounds
@@ -34,23 +34,35 @@ public class PlayerMove : MonoBehaviour
     private void OnEnable()
     {
         touchInputActions.Enable();
-        touchInputActions.TouchControls.PrimaryTouch.performed += OnTouchPerformed;
-        touchInputActions.TouchControls.Swipe.performed += OnSwipePerformed;
+        touchInputActions.TouchControls.PrimaryTouch1.performed += OnTouchPerformed1;
+        touchInputActions.TouchControls.PrimaryTouch2.performed += OnTouchPerformed2;
+        touchInputActions.TouchControls.Swipe1.performed += OnSwipePerformed1;
+        touchInputActions.TouchControls.Swipe2.performed += OnSwipePerformed2;
     }
 
     private void OnDisable()
     {
         touchInputActions.Disable();
-        touchInputActions.TouchControls.PrimaryTouch.performed -= OnTouchPerformed;
-        touchInputActions.TouchControls.Swipe.performed -= OnSwipePerformed;
+        touchInputActions.TouchControls.PrimaryTouch1.performed -= OnTouchPerformed1;
+        touchInputActions.TouchControls.PrimaryTouch2.performed -= OnTouchPerformed2;
+        touchInputActions.TouchControls.Swipe1.performed -= OnSwipePerformed1;
+        touchInputActions.TouchControls.Swipe2.performed -= OnSwipePerformed2;
     }
 
-    
+
 
     private void Update()
     {
         SetPlayerVelocity();
-        RotatePlayer();
+        // Debug logging to understand input states
+        if (IsTouchInSwipeArea(touchPosition1))
+        {
+            RotatePlayer(swipeInput1);
+        }
+        else if (IsTouchInSwipeArea(touchPosition2))
+        {
+            RotatePlayer(swipeInput2);
+        }
 
         if (rb.velocity.magnitude > 0.1f)  // Player is moving
         {
@@ -87,9 +99,9 @@ public class PlayerMove : MonoBehaviour
         rb.velocity = smoothedMovementInput * speed;
     }
 
-    private void RotatePlayer()
+    private void RotatePlayer(Vector2 swipeInput)
     {
-        if (swipeInput != Vector2.zero && IsTouchInSwipeArea())
+        if (swipeInput != Vector2.zero)
         {
             // Calculate the target angle based on swipe input
             float targetAngle = Mathf.Atan2(swipeInput.y, swipeInput.x) * Mathf.Rad2Deg;
@@ -104,17 +116,27 @@ public class PlayerMove : MonoBehaviour
 
 
 
-    private void OnSwipePerformed(InputAction.CallbackContext context)
+    private void OnSwipePerformed1(InputAction.CallbackContext context)
     {
-        swipeInput = context.ReadValue<Vector2>();
+        swipeInput1 = context.ReadValue<Vector2>();
     }
 
-    private void OnTouchPerformed(InputAction.CallbackContext context)
+    private void OnSwipePerformed2(InputAction.CallbackContext context)
     {
-        touchPosition = context.ReadValue<Vector2>();
+        swipeInput2 = context.ReadValue<Vector2>();
     }
 
-    private bool IsTouchInSwipeArea()
+    private void OnTouchPerformed1(InputAction.CallbackContext context)
+    {
+        touchPosition1 = context.ReadValue<Vector2>();
+    }
+
+    private void OnTouchPerformed2(InputAction.CallbackContext context)
+    {
+        touchPosition2 = context.ReadValue<Vector2>();
+    }
+
+    private bool IsTouchInSwipeArea(Vector2 touchPosition)
     {
         if (RectTransformUtility.ScreenPointToLocalPointInRectangle(
                 swipeArea,
@@ -126,6 +148,7 @@ public class PlayerMove : MonoBehaviour
         }
         return false;
     }
+
 
     private void DetectTileType()
     {

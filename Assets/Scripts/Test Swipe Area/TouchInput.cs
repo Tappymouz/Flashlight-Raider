@@ -25,21 +25,39 @@ public partial class @TouchInput: IInputActionCollection2, IDisposable
     ""maps"": [
         {
             ""name"": ""TouchControls"",
-            ""id"": ""7416f27e-1c6c-4f5a-8731-20cedaa642f7"",
+            ""id"": ""081ba836-b8c8-4eaf-ad96-519ba335d94c"",
             ""actions"": [
                 {
-                    ""name"": ""PrimaryTouch"",
+                    ""name"": ""PrimaryTouch1"",
                     ""type"": ""PassThrough"",
-                    ""id"": ""1d1ed7c4-6c5a-4b1e-9680-2cdc35eb7c72"",
+                    ""id"": ""149cc84e-d50e-4cc1-bc5d-f4f67103c607"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Swipe"",
+                    ""name"": ""PrimaryTouch2"",
                     ""type"": ""PassThrough"",
-                    ""id"": ""7f7c5eb7-a687-4ff3-9619-c4c3fd74c2f0"",
+                    ""id"": ""5d663f8f-fdf1-4902-bc30-6ed2f734ddc8"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Swipe1"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""8705dbb5-fec5-4473-91dd-f977242b88b2"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Swipe2"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""3cdde5d2-c9ff-4a96-9446-dca7eb0412d7"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -49,47 +67,59 @@ public partial class @TouchInput: IInputActionCollection2, IDisposable
             ""bindings"": [
                 {
                     ""name"": """",
-                    ""id"": ""2a4bff00-a818-487f-8df4-caa385106385"",
-                    ""path"": ""<Touchscreen>/primaryTouch/position"",
+                    ""id"": ""e1457908-76a9-4d87-90d2-c37d00f50ff8"",
+                    ""path"": ""<Touchscreen>/touch0/position"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""PrimaryTouch"",
+                    ""action"": ""PrimaryTouch1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""b8ac2eac-7877-42b8-bd2f-3396e3536603"",
-                    ""path"": ""<Touchscreen>/primaryTouch/delta"",
+                    ""id"": ""863001ce-c5cc-4964-9018-4e11e1c8c426"",
+                    ""path"": ""<Touchscreen>/touch1/position"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Swipe"",
+                    ""action"": ""PrimaryTouch2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cd92fffd-b06f-4cf1-b699-71a2d3c07c83"",
+                    ""path"": ""<Touchscreen>/touch0/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Swipe1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""692da51a-4151-4d32-8b60-f1fd505c1556"",
+                    ""path"": ""<Touchscreen>/touch1/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Swipe2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
             ]
         }
     ],
-    ""controlSchemes"": [
-        {
-            ""name"": ""New control scheme"",
-            ""bindingGroup"": ""New control scheme"",
-            ""devices"": [
-                {
-                    ""devicePath"": ""<Touchscreen>"",
-                    ""isOptional"": false,
-                    ""isOR"": false
-                }
-            ]
-        }
-    ]
+    ""controlSchemes"": []
 }");
         // TouchControls
         m_TouchControls = asset.FindActionMap("TouchControls", throwIfNotFound: true);
-        m_TouchControls_PrimaryTouch = m_TouchControls.FindAction("PrimaryTouch", throwIfNotFound: true);
-        m_TouchControls_Swipe = m_TouchControls.FindAction("Swipe", throwIfNotFound: true);
+        m_TouchControls_PrimaryTouch1 = m_TouchControls.FindAction("PrimaryTouch1", throwIfNotFound: true);
+        m_TouchControls_PrimaryTouch2 = m_TouchControls.FindAction("PrimaryTouch2", throwIfNotFound: true);
+        m_TouchControls_Swipe1 = m_TouchControls.FindAction("Swipe1", throwIfNotFound: true);
+        m_TouchControls_Swipe2 = m_TouchControls.FindAction("Swipe2", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -151,14 +181,18 @@ public partial class @TouchInput: IInputActionCollection2, IDisposable
     // TouchControls
     private readonly InputActionMap m_TouchControls;
     private List<ITouchControlsActions> m_TouchControlsActionsCallbackInterfaces = new List<ITouchControlsActions>();
-    private readonly InputAction m_TouchControls_PrimaryTouch;
-    private readonly InputAction m_TouchControls_Swipe;
+    private readonly InputAction m_TouchControls_PrimaryTouch1;
+    private readonly InputAction m_TouchControls_PrimaryTouch2;
+    private readonly InputAction m_TouchControls_Swipe1;
+    private readonly InputAction m_TouchControls_Swipe2;
     public struct TouchControlsActions
     {
         private @TouchInput m_Wrapper;
         public TouchControlsActions(@TouchInput wrapper) { m_Wrapper = wrapper; }
-        public InputAction @PrimaryTouch => m_Wrapper.m_TouchControls_PrimaryTouch;
-        public InputAction @Swipe => m_Wrapper.m_TouchControls_Swipe;
+        public InputAction @PrimaryTouch1 => m_Wrapper.m_TouchControls_PrimaryTouch1;
+        public InputAction @PrimaryTouch2 => m_Wrapper.m_TouchControls_PrimaryTouch2;
+        public InputAction @Swipe1 => m_Wrapper.m_TouchControls_Swipe1;
+        public InputAction @Swipe2 => m_Wrapper.m_TouchControls_Swipe2;
         public InputActionMap Get() { return m_Wrapper.m_TouchControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -168,22 +202,34 @@ public partial class @TouchInput: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_TouchControlsActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_TouchControlsActionsCallbackInterfaces.Add(instance);
-            @PrimaryTouch.started += instance.OnPrimaryTouch;
-            @PrimaryTouch.performed += instance.OnPrimaryTouch;
-            @PrimaryTouch.canceled += instance.OnPrimaryTouch;
-            @Swipe.started += instance.OnSwipe;
-            @Swipe.performed += instance.OnSwipe;
-            @Swipe.canceled += instance.OnSwipe;
+            @PrimaryTouch1.started += instance.OnPrimaryTouch1;
+            @PrimaryTouch1.performed += instance.OnPrimaryTouch1;
+            @PrimaryTouch1.canceled += instance.OnPrimaryTouch1;
+            @PrimaryTouch2.started += instance.OnPrimaryTouch2;
+            @PrimaryTouch2.performed += instance.OnPrimaryTouch2;
+            @PrimaryTouch2.canceled += instance.OnPrimaryTouch2;
+            @Swipe1.started += instance.OnSwipe1;
+            @Swipe1.performed += instance.OnSwipe1;
+            @Swipe1.canceled += instance.OnSwipe1;
+            @Swipe2.started += instance.OnSwipe2;
+            @Swipe2.performed += instance.OnSwipe2;
+            @Swipe2.canceled += instance.OnSwipe2;
         }
 
         private void UnregisterCallbacks(ITouchControlsActions instance)
         {
-            @PrimaryTouch.started -= instance.OnPrimaryTouch;
-            @PrimaryTouch.performed -= instance.OnPrimaryTouch;
-            @PrimaryTouch.canceled -= instance.OnPrimaryTouch;
-            @Swipe.started -= instance.OnSwipe;
-            @Swipe.performed -= instance.OnSwipe;
-            @Swipe.canceled -= instance.OnSwipe;
+            @PrimaryTouch1.started -= instance.OnPrimaryTouch1;
+            @PrimaryTouch1.performed -= instance.OnPrimaryTouch1;
+            @PrimaryTouch1.canceled -= instance.OnPrimaryTouch1;
+            @PrimaryTouch2.started -= instance.OnPrimaryTouch2;
+            @PrimaryTouch2.performed -= instance.OnPrimaryTouch2;
+            @PrimaryTouch2.canceled -= instance.OnPrimaryTouch2;
+            @Swipe1.started -= instance.OnSwipe1;
+            @Swipe1.performed -= instance.OnSwipe1;
+            @Swipe1.canceled -= instance.OnSwipe1;
+            @Swipe2.started -= instance.OnSwipe2;
+            @Swipe2.performed -= instance.OnSwipe2;
+            @Swipe2.canceled -= instance.OnSwipe2;
         }
 
         public void RemoveCallbacks(ITouchControlsActions instance)
@@ -201,18 +247,11 @@ public partial class @TouchInput: IInputActionCollection2, IDisposable
         }
     }
     public TouchControlsActions @TouchControls => new TouchControlsActions(this);
-    private int m_NewcontrolschemeSchemeIndex = -1;
-    public InputControlScheme NewcontrolschemeScheme
-    {
-        get
-        {
-            if (m_NewcontrolschemeSchemeIndex == -1) m_NewcontrolschemeSchemeIndex = asset.FindControlSchemeIndex("New control scheme");
-            return asset.controlSchemes[m_NewcontrolschemeSchemeIndex];
-        }
-    }
     public interface ITouchControlsActions
     {
-        void OnPrimaryTouch(InputAction.CallbackContext context);
-        void OnSwipe(InputAction.CallbackContext context);
+        void OnPrimaryTouch1(InputAction.CallbackContext context);
+        void OnPrimaryTouch2(InputAction.CallbackContext context);
+        void OnSwipe1(InputAction.CallbackContext context);
+        void OnSwipe2(InputAction.CallbackContext context);
     }
 }
