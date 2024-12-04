@@ -75,6 +75,7 @@ public class PlayerShoot : MonoBehaviour
     {
         isReloading = true;
         Debug.Log("Reloading...");
+        AudioManager.Instance.PlaySFX("Reload");
 
         yield return new WaitForSeconds(reloadTime);
 

@@ -5,28 +5,38 @@ public class ShopUIManager : MonoBehaviour
 {
     [Header("Character Preview")]
     public GameObject[] playerCharacters; // Array karakter
-    public int equippedWeaponId = 0; // ID senjata yang di-equip
+    public int equippedWeaponId; // ID senjata yang di-equip
 
+    private void Start()
+    {
+        UpdateCharacterPreview();
+    }
     public void EquipWeapon(int itemId)
     {
         equippedWeaponId = itemId;
         UpdateCharacterPreview();
     }
 
-    private void UpdateCharacterPreview()
+    public void UpdateCharacterPreview()
     {
+        // Retrieve the equipped character ID from PlayerDataManager's playerData
+        int equippedId = PlayerDataManager.instance.playerData.equippedCharacterId;
+
+        // Deactivate all character previews
         foreach (var character in playerCharacters)
         {
             character.SetActive(false);
         }
 
-        if (equippedWeaponId >= 0 && equippedWeaponId < playerCharacters.Length)
+        // Activate the preview for the equipped character
+        if (equippedId >= 0 && equippedId < playerCharacters.Length)
         {
-            playerCharacters[equippedWeaponId].SetActive(true);
+            playerCharacters[equippedId].SetActive(true);
         }
         else
         {
-            Debug.LogError("Weapon ID out of range.");
+            Debug.LogError("Equipped character ID is out of range.");
         }
     }
 }
+
