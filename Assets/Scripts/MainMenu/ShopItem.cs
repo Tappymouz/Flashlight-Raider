@@ -12,6 +12,9 @@ public class ShopItem : MonoBehaviour
     public Button equipButton;
     private ShopItem[] allShopItems;
 
+    [Header("Shop UI Manager Reference")]
+    public ShopUIManager shopUIManager; // Hubungkan ShopUIManager
+
     void Start()
     {
         // Initialize the button states when the scene starts
@@ -66,6 +69,9 @@ public class ShopItem : MonoBehaviour
         // Update all equip button states after equipping a new item
         UpdateAllEquipButtons();
 
+        // Inform ShopUIManager to update the character preview
+        shopUIManager.EquipWeapon(itemId); // Panggil fungsi di ShopUIManager
+
         // Debug message for equipping
         Debug.Log("Equipped item ID: " + itemId);
         AudioManager.Instance.PlaySFX("Click");
@@ -94,5 +100,3 @@ public class ShopItem : MonoBehaviour
         equipButton.interactable = !isEquipped;
     }
 }
-
-
