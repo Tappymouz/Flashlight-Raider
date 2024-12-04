@@ -56,5 +56,9 @@
         "temp/": true,
         "Temp/": true
     },
+<<<<<<< Updated upstream
     "dotnet.defaultSolution": "Flasright_Percobaan.sln"
+=======
+    "dotnet.defaultSolution": "Flashlight-Raider.sln"
+>>>>>>> Stashed changes
 }
